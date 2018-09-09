@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { injectGlobal } from 'styled-components';
+import styled, { injectGlobal } from 'styled-components';
 import { normalize } from 'polished';
 
 import Header from '../Header';
@@ -11,11 +11,17 @@ injectGlobal`
   ${normalize()};
 `;
 
+const StyledWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
+
 const Template = ({ counterValue, logo }) => (
-  <div>
+  <StyledWrapper>
     <Header logo={logo} />
     <Body counterValue={counterValue} />
-  </div>
+  </StyledWrapper>
 );
 
 export default Template;
