@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import { rgba } from 'polished';
 
 const StyledHeader = styled.header`
-  background: #333;
-  color: #fff;
+  background: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.white};
   display: flex;
   justify-content: space-between;
   padding: 10px 20px; /* vertical horizontal */
@@ -25,10 +25,12 @@ const StyledH1 = styled.h1`
   font-size: 30px;
 `;
 
-const Header = ({ logo }) => (
+const Header = ({ logo, theme }) => (
   <StyledHeader>
     <StyledImg src={logo} alt="" />
     <StyledH1>
+      {theme.colors.success}
+      {' '}
 Ejemplo de contador Keepcoding
     </StyledH1>
   </StyledHeader>
@@ -38,4 +40,4 @@ Header.propTypes = {
   logo: PropTypes.string.isRequired,
 };
 
-export default Header;
+export default withTheme(Header);
