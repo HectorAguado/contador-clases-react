@@ -4,20 +4,25 @@ import PropTypes from 'prop-types';
 import ButtonGroup from '../ButtonGroup';
 import Button from '../Button';
 
-const OperationButtons = ({ addOne, removeOne }) => (
+const OperationButtons = ({ updateCounter }) => (
   <ButtonGroup>
-    <Button type="button" onClick={removeOne}>
+    <Button type="button" onClick={updateCounter} value={-5}>
+      -5
+    </Button>
+    <Button type="button" onClick={updateCounter} value={-1}>
       -1
     </Button>
-    <Button type="button" onClick={addOne}>
+    <Button type="button" onClick={updateCounter} value={1}>
       +1
+    </Button>
+    <Button type="button" onClick={updateCounter} value={5}>
+      +5
     </Button>
   </ButtonGroup>
 );
 
 OperationButtons.propTypes = {
-  addOne: PropTypes.func.isRequired,
-  removeOne: PropTypes.func.isRequired,
+  updateCounter: PropTypes.func.isRequired,
 };
 
 export default OperationButtons;

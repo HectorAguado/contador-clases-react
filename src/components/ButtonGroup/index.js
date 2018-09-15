@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Flex from '../Flex';
 
 const StyledFlex = styled(Flex)`
-  border: 1px solid red;
+  border: 1px solid #fabada;
 `;
 
 const ButtonGroup = ({ center, ...props }) => (
