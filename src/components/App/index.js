@@ -9,12 +9,22 @@ class App extends Component {
     value: -10,
   };
 
+  resetCounter = () => {
+    this.setState({
+      value: 0,
+    });
+  };
+
   render() {
     const { value } = this.state;
     return (
       <Template logo="https://keepcoding.io/es/wp-content/uploads/sites/4/2015/05/logo-keepcoding-web.png">
         <CounterValue value={value} />
-        {value > -10 && value < 10 ? <OperationButtons /> : <ResetButtons />}
+        {value > -10 && value < 10 ? (
+          <OperationButtons />
+        ) : (
+          <ResetButtons resetCounter={this.resetCounter} />
+        )}
       </Template>
     );
   }
