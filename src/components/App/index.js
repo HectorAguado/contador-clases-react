@@ -15,13 +15,25 @@ class App extends Component {
     });
   };
 
+  addOne = () => {
+    this.setState(prevState => ({
+      value: prevState.value + 1,
+    }));
+  };
+
+  removeOne = () => {
+    this.setState(prevState => ({
+      value: prevState.value - 1,
+    }));
+  };
+
   render() {
     const { value } = this.state;
     return (
       <Template logo="https://keepcoding.io/es/wp-content/uploads/sites/4/2015/05/logo-keepcoding-web.png">
         <CounterValue value={value} />
         {value > -10 && value < 10 ? (
-          <OperationButtons />
+          <OperationButtons addOne={this.addOne} removeOne={this.removeOne} />
         ) : (
           <ResetButtons resetCounter={this.resetCounter} />
         )}

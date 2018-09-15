@@ -20,7 +20,7 @@ const ResetButtons = ({ resetCounter }) => (
 );
 
 ResetButtons.propTypes = {
-  resetCounter: PropTypes.number.isRequired,
+  resetCounter: PropTypes.func.isRequired,
 };
 
 export default ResetButtons;
