@@ -12,6 +12,36 @@ const INITIAL_STATE = {
 class App extends Component {
   state = INITIAL_STATE;
 
+  componentDidMount = () => {
+    const { maxValue } = this.props;
+    this.interval = setInterval(() => {
+      this.setState(prevState => {
+        if (prevState.value * -1 > maxValue * -1 && prevState.value < maxValue) {
+          return {
+            value: prevState.value + 1,
+          };
+        }
+        return {};
+      });
+    }, 1000);
+  };
+
+  componentWillUnmount = () => {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  };
+
+  shouldComponentUpdate = (nextProps, nextState) => {
+    if (nextProps.maxValue !== this.props.maxValue) {
+      return true;
+    }
+    if (nextState.value !== this.state.value) {
+      return true;
+    }
+    return false;
+  };
+
   updateCounter = event => {
     console.log(event.target); // <button class="sc-dnqmqq fINBpT" type="button" value="1"> -> saca la etiqueta el botón
     const { value } = event.target; // por destructuring, sacamos value del target
