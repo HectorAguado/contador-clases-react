@@ -12,12 +12,15 @@
     "styled-map": "^3.0.0"
   },
   "devDependencies": {
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
     "eslint": "^5.2.0",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
-    "prettier": "^1.13.7"
+    "prettier": "^1.13.7",
+    "react-test-renderer": "^16.5.1"
   },
   "scripts": {
     "start": "react-scripts start",

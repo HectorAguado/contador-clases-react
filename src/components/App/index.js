@@ -45,7 +45,7 @@ class App extends Component {
   };
 
   onSubmit = e => {
-    e.preventDefault();
+    e.preventDefault(); //evita que se recargue la vista
     this.setState(prevState => ({
       value: +prevState.inputValue,
     }));
